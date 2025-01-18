@@ -14,18 +14,43 @@ function Product(props) {
         cart: { cartItems },
     } = state;
 
-    const addToCartHandler = async (item) => {
+    const addToCartHandler = async (product) => {
+        console.log("Product being added:", product);
+        console.log("Product ID:", product?._id || product?.id);
+
+        if (!product || (!product._id && !product.id)) {
+               console.error('Product or product ID is undefined', product);
+               return;
+        }
+
+        const productId = product._id || product.id;
+        const existItem = cartItems.find((x) => (x._id || x.id) === productId);
+        const quantity = existItem ? existItem.quantity + 1 : 1;  // Increment if exists
+
         const existItem = cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
-        const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${item._id}`);
-        if (data.countInStock < quantity) {
-            window.alert('Sorry. Product is out of stock');
-            return;
+        const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${product._id}`);
+
+        try {
+           const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${productId}`);
+           console.log("Product data from API:", data);
+
+            if (data.countInStock < quantity) {
+              window.alert('Sorry. Product is out of stock');
+              return;
+            }
+
+            ctxDispatch({
+              type: 'CART_ADD_ITEM',
+              payload: {
+                ...product,
+                quantity,  // Use the incremented quantity
+                _id: productId  // Ensure consistent ID field
+              },
+            });
+        } catch (error) {
+            console.error("Error in addToCartHandler:", error);
         }
-        ctxDispatch({
-            type: 'CART_ADD_ITEM',
-            payload: { ...item, quantity },
-        });
     };
 
     return (
