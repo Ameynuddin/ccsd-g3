@@ -38,12 +38,4 @@ public class ProductController {
         List<Product> products = productService.findByCategory(category);
         return ResponseEntity.ok(products);
     }
-
-    //    Cart Management
-    @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable String id) {
-        return productService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElseThrow(() -> new ResourceNotFoundException("Product not found with id: " + id));
-    }
 }
