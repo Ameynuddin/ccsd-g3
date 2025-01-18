@@ -1,4 +1,4 @@
-package com.ccsdg3.ecom.dto;
+package com.ccsd.backend.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

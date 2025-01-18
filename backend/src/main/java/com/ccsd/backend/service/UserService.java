@@ -1,12 +1,12 @@
-package com.ccsdg3.ecom.service;
+package com.ccsd.backend.service;
 
-import com.ccsdg3.ecom.model.User;
-import com.ccsdg3.ecom.repository.UserRepository;
-import com.ccsdg3.ecom.dto.SignInRequest;
-import com.ccsdg3.ecom.dto.SignUpRequest;
-import com.ccsdg3.ecom.dto.AuthResponse;
-import com.ccsdg3.ecom.exception.ResourceNotFoundException;
-import com.ccsdg3.ecom.util.JwtUtils;
+import com.ccsd.backend.model.User;
+import com.ccsd.backend.repository.UserRepository;
+import com.ccsd.backend.dto.SignInRequest;
+import com.ccsd.backend.dto.SignUpRequest;
+import com.ccsd.backend.dto.AuthResponse;
+import com.ccsd.backend.exception.ResourceNotFoundException;
+import com.ccsd.backend.util.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

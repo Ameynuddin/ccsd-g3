@@ -1,9 +1,9 @@
-package com.ccsdg3.ecom.controller;
+package com.ccsd.backend.controller;
 
-import com.ccsdg3.ecom.dto.SignInRequest;
-import com.ccsdg3.ecom.dto.SignUpRequest;
-import com.ccsdg3.ecom.dto.AuthResponse;
-import com.ccsdg3.ecom.service.UserService;
+import com.ccsd.backend.dto.SignInRequest;
+import com.ccsd.backend.dto.SignUpRequest;
+import com.ccsd.backend.dto.AuthResponse;
+import com.ccsd.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

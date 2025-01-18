@@ -1,4 +1,4 @@
-package com.ccsdg3.ecom.config;
+package com.ccsd.backend.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

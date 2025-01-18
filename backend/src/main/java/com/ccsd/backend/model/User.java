@@ -1,4 +1,4 @@
-package com.ccsdg3.ecom.model;
+package com.ccsd.backend.model;
 
 import java.util.Date;
 import org.springframework.data.annotation.Id;
