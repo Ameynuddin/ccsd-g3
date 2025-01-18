@@ -1,4 +1,4 @@
-package com.ccsd.backend.repository;
+package com.ccsd.backend.dto;
 
 import lombok.Data;
 import lombok.AllArgsConstructor;
